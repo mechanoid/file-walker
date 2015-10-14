@@ -1,8 +1,21 @@
 {
   "name": "lemming",
   "version": "0.0.2",
-  "description": "",
+  "description": "a simple recursive file crawler",
   "main": "lemming.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mechanoid/lemming"
+  },
+  "bugs": {
+    "url": "https://github.com/mechanoid/lemming/issues"
+  },
+  "keywords": [
+    "runner",
+    "crawler",
+    "directory",
+    "promise"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
