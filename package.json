@@ -1,0 +1,17 @@
+{
+  "name": "file-walker",
+  "version": "0.0.1",
+  "description": "",
+  "main": "file-walker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Falk Hoppe <falkhoppe81@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "q": "^1.4.1"
+  }
+}
