@@ -58,11 +58,6 @@ module.exports = {
   }
 
   , walk(dir) {
-    var r = this.run(dir).then(function(files) {
-      console.log(files);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+    return this.run(dir);
   }
 };
