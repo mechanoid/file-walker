@@ -1,6 +1,6 @@
 {
   "name": "lemming",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a simple recursive file crawler",
   "main": "lemming.js",
   "repository": {

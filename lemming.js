@@ -8,6 +8,7 @@ var fs = require('fs')
 module.exports = {
   resolveFile(dir, file) {
     file = path.resolve(dir, file);
+
     var d = Q.defer();
 
     fs.stat(file, (err, stat) => {
@@ -38,8 +39,12 @@ module.exports = {
     return d.promise;
   }
 
-  , run(dir) {
+  , run(dir, options) {
     var d = Q.defer();
+
+    var opts = Object.assign({
+      groupByPath: false
+    }, options);
 
     this.readDir(dir)
     .then((files) => {
@@ -47,17 +52,22 @@ module.exports = {
 
       Q.all(promises)
       .then(function(files) {
-        d.resolve(lo.flatten(files));
-      });
+        if (opts.groupByPath) {
+          var res = {};
+          res[dir] = lo.flatten(files);
+          d.resolve(res);
+        } else {
+          d.resolve(lo.flatten(files));
+        }
+      })
+      .catch((error) => d.reject(error));;
     })
-    .catch(function(error) {
-      d.reject(error);
-    });
+    .catch((error) => d.reject(error));
 
     return d.promise;
   }
 
-  , walk(dir) {
-    return this.run(dir);
+  , walk(dir, options) {
+    return this.run(dir, options);
   }
 };
